@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan Kami</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <section class="hero">
+        <div class="content">
+            <p>The Wedding of</p>
+            <h1>Randi & Syifa</h1>
+            
+            <div class="guest-box">
+                <p>Kepada Yth. Bapak/Ibu/Saudara/i:</p>
+                <h2 id="guest-name">Tamu Undangan</h2>
+                <p>Kami Mengundang Anda untuk Hadir</p>
+            </div>
+
+            <button onclick="scrollToContent()">Buka Undangan</button>
+        </div>
+    </section>
+
+    <section id="main-content" class="details">
+        <h2>Save The Date</h2>
+        <p>Minggu, 12 April 2026</p>
+        <p>Pukul 09.00 - Selesai</p>
+        <p>Gedung Putih, Jakarta Selatan</p>
+        <a href="https://maps.google.com" class="btn-maps">Lihat Lokasi</a>
+    </section>
+
+    <script>
+        // Script untuk mengambil nama dari URL (?to=Nama+Tamu)
+        const urlParams = new URLSearchParams(window.location.search);
+        const namaTamu = urlParams.get('to');
+        if (namaTamu) {
+            document.getElementById('guest-name').innerText = namaTamu.replace(/\+/g, ' ');
+        }
+
+        function scrollToContent() {
+            document.getElementById('main-content').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
